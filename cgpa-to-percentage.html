@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CGPA to Percentage Calculator – Free, 10-Point Scale | Stipendex</title><meta name="description" content="Free CGPA to percentage calculator for the 10-point scale. Use the CBSE method (x 9.5), a simple method, or enter your own university formula."><meta name="color-scheme" content="dark">
+<meta property="og:title" content="CGPA to Percentage Calculator – Free, 10-Point Scale"><meta property="og:description" content="Free CGPA to percentage calculator for the 10-point scale. Use the CBSE method (x 9.5), a simple method, or enter your own university formula."><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2rem 0 4rem;align-items:start}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.1fr;padding-top:3.5rem}.two{grid-template-columns:1.2fr 1fr}}
+h1{font:800 clamp(2.3rem,6vw,3.8rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.2rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}.full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}
+input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(1.9rem,5vw,2.6rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.3rem 0 1rem}
+.bar{display:flex;height:.7rem;border-radius:1rem;overflow:hidden;background:var(--line)}.bar b{display:block;transition:width .35s}
+.key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;font-size:.85rem;color:var(--mute);margin-top:.5rem}
+.save{margin-top:1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .8rem}
+.two{display:grid;gap:2.5rem}.ex{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem;margin:1rem 0}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+
+select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}.tblx{width:100%;border-collapse:collapse;margin:.6rem 0}.tblx td,.tblx th{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line)}.tblx th{color:var(--mute);font-weight:500;font-size:.9rem}
+</style></head><body><div class="wrap">
+<header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
+<main><div class="hero"><div><h1>Turn your <span>CGPA</span> into a percentage.</h1>
+<p class="lead">Convert a 10-point CGPA to a percentage, or a percentage back to CGPA. Use the common CBSE method, a simple method, or type in your own university's formula.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
+<div class="calc"><h2>CGPA to percentage calculator (10-point scale)</h2><div class="grid">
+<div class="full"><label for="dir">Convert</label><select id="dir"><option value="cp">CGPA to percentage</option><option value="pc">Percentage to CGPA</option></select></div>
+<div class="full"><label for="v" id="vl">Your CGPA (out of 10)</label><input id="v" type="number" min="0" step="0.01" value="8" inputmode="decimal"></div>
+<div class="full"><label for="fm">Method</label><select id="fm"><option value="9.5">CBSE method: CGPA × 9.5</option><option value="10">Simple method: CGPA × 10</option><option value="c">My university's formula</option></select></div>
+<div class="grid full" id="cust" style="display:none"><div><label for="mu">Multiply by</label><input id="mu" type="number" step="0.01" value="10" inputmode="decimal"></div><div><label for="of">After subtracting</label><input id="of" type="number" step="0.01" value="0.75" inputmode="decimal"></div></div></div>
+<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="save" id="sv" hidden></div></div></div></div>
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+<section><div class="two"><div><h2 class="t">How the conversion works</h2>
+<p>There is no single official formula. The most common one multiplies your CGPA by <strong>9.5</strong>, which CBSE uses. Some universities multiply by 10, and some subtract a small number first and then multiply.</p>
+<div class="ex"><p style="margin:0"><strong>Example:</strong> a CGPA of 8.0 with the CBSE method is 8.0 × 9.5 = <strong>76%</strong>.</p></div>
+<p>For a custom formula, the calculator does (CGPA − the number you subtract) × the number you multiply by.</p></div>
+<div><h2 class="t">Use your university's rule</h2><p>Universities publish their own formulas, and different websites often disagree about them. That's why this tool lets you type in your own. Check your university's official circular, especially for jobs or applications abroad.</p></div></div></section>
+<section><h2 class="t">Quick reference (CBSE method)</h2>
+<table class="tblx"><tr><th>CGPA</th><th>Percentage</th></tr><tr><td>10</td><td>95%</td></tr><tr><td>9</td><td>85.5%</td></tr><tr><td>8.5</td><td>80.75%</td></tr><tr><td>8</td><td>76%</td></tr><tr><td>7.5</td><td>71.25%</td></tr><tr><td>7</td><td>66.5%</td></tr><tr><td>6</td><td>57%</td></tr></table></section>
+<section><h2 class="t">Common questions</h2>
+<details><summary>Which formula should I use?</summary><p>Use the one your university or the organisation asking for it accepts. If nothing is specified, the CBSE method (× 9.5) is the most widely recognised.</p></details>
+<details><summary>Does this work for a 4-point scale?</summary><p>No. This tool is for 10-point CGPA systems. For a 4.0 scale, see our GPA calculator.</p></details></section></main><footer><p>© 2026 Stipendex. Results are estimates for planning, not financial advice. <a href="privacy.html">Privacy policy</a></p></footer></div><script>
+var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0})};
+function run(){var m=$("dir").value,f=$("fm").value,big=$("big"),sub=$("sub"),sv=$("sv"),raw=$("v").value,v=+raw;
+$("cust").style.display=f==="c"?"grid":"none";$("vl").textContent=m==="cp"?"Your CGPA (out of 10)":"Your percentage (%)";
+var mul=f==="c"?+$("mu").value:+f,off=f==="c"?+$("of").value||0:0;sv.hidden=true;big.classList.remove("err");
+if(raw===""||!(mul>0)){big.textContent="Enter a value";sub.textContent=mul>0?"Type your "+(m==="cp"?"CGPA":"percentage")+" above.":"The multiplier needs to be above zero.";return}
+if(m==="cp"){if(v<0||v>10){big.classList.add("err");big.textContent="Check your CGPA";sub.textContent="A 10-point CGPA is between 0 and 10.";return}
+var p=(v-off)*mul;big.textContent=p.toFixed(2)+"%";sub.textContent=f==="c"?"("+v+" − "+off+") × "+mul+" = "+p.toFixed(2)+"%":"CGPA "+v+" × "+mul+" = "+p.toFixed(2)+"%"}
+else{if(v<0||v>100){big.classList.add("err");big.textContent="Check your percentage";sub.textContent="A percentage is between 0 and 100.";return}
+var g=v/mul+off;big.textContent=g.toFixed(2)+" CGPA";sub.textContent="Working back from "+v+"% using the method you picked."}}
+$("dir").addEventListener("change",function(){$("v").value=this.value==="cp"?8:76;run()});
+["fm","v","mu","of"].forEach(function(i){$(i).addEventListener(i==="fm"?"change":"input",run)});run();
+</script></body></html>
