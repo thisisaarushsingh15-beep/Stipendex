@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College Cost Calculator – Plan Your Total Cost | Stipendex</title><meta name="description" content="Free college cost calculator. Add tuition, housing, books and other costs to see your total for the whole degree and how much is left after grants and savings."><meta name="color-scheme" content="dark">
+<meta property="og:title" content="College Cost Calculator – Plan Your Total Cost"><meta property="og:description" content="Free college cost calculator. Add tuition, housing, books and other costs to see your total for the whole degree and how much is left after grants and savings."><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2rem 0 4rem;align-items:start}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.1fr;padding-top:3.5rem}.two{grid-template-columns:1.2fr 1fr}}
+h1{font:800 clamp(2.3rem,6vw,3.8rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.2rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}.full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}
+input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(1.9rem,5vw,2.6rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.3rem 0 1rem}
+.bar{display:flex;height:.7rem;border-radius:1rem;overflow:hidden;background:var(--line)}.bar b{display:block;transition:width .35s}
+.key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;font-size:.85rem;color:var(--mute);margin-top:.5rem}
+.save{margin-top:1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .8rem}
+.two{display:grid;gap:2.5rem}.ex{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem;margin:1rem 0}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+
+</style></head><body><div class="wrap">
+<header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
+<main><div class="hero"><div><h1>What will college really <span>cost</span> you?</h1>
+<p class="lead">Add up a year of tuition, housing, books and everyday costs. See the total for your whole degree and how much is left to cover after grants and savings.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
+<div class="calc"><h2>College cost planner (a year of costs)</h2><div class="grid">
+<div><label for="tu">Tuition and fees ($)</label><input id="tu" type="number" min="0" step="500" value="12000" inputmode="decimal"></div>
+<div><label for="hf">Housing and food ($)</label><input id="hf" type="number" min="0" step="500" value="12000" inputmode="decimal"></div>
+<div><label for="bk">Books and supplies ($)</label><input id="bk" type="number" min="0" step="100" value="1000" inputmode="decimal"></div>
+<div><label for="ot">Transport and personal ($)</label><input id="ot" type="number" min="0" step="100" value="3000" inputmode="decimal"></div>
+<div><label for="yrs">Years of study</label><input id="yrs" type="number" min="1" max="8" step="1" value="4" inputmode="decimal"></div>
+<div><label for="gr">Yearly price rise (%)</label><input id="gr" type="number" min="0" step="0.5" value="3" inputmode="decimal"></div>
+<div><label for="gt">Grants and scholarships a year ($)</label><input id="gt" type="number" min="0" step="500" value="5000" inputmode="decimal"></div>
+<div><label for="fm">Savings or family help a year ($)</label><input id="fm" type="number" min="0" step="500" value="6000" inputmode="decimal"></div></div>
+<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="bar" aria-hidden="true"><b id="pb" style="background:var(--teal)"></b></div><div class="key"><span>Covered by grants and savings</span><span id="pct"></span></div><div class="save" id="sv" hidden></div></div></div></div>
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+<section><div class="two"><div><h2 class="t">How this works</h2>
+<p>We add your four yearly costs, raise them a little each year for price rises, and add up every year of your degree. Then we take away the help you expect to receive, and what's left is what you'd need to cover, often with loans.</p>
+<div class="ex"><p style="margin:0"><strong>Tip:</strong> the price rise is a guess. Colleges often raise prices a little each year, so 3% is a cautious starting point.</p></div></div>
+<div><h2 class="t">Cut the gap</h2><p>Compare in-state and out-of-state costs, ask about scholarships every year, and consider living costs, which are often as big as tuition.</p></div></div></section>
+<section><h2 class="t">Common questions</h2>
+<details><summary>What counts as "other" costs?</summary><p>Bus or car costs, phone, clothes, entertainment and trips home. Students often underestimate these, so be generous.</p></details>
+<details><summary>Are grants and scholarships paid back?</summary><p>No, grants and scholarships don't need to be repaid. Loans do. The monthly figure shown assumes a 6% loan over 10 years, which is a simple example, not an offer.</p></details></section></main><footer><p>© 2026 Stipendex. Results are estimates for planning, not financial advice. <a href="privacy.html">Privacy policy</a></p></footer></div><script>
+var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0})};
+function pay(B,a,n){var r=a/1200;return r>0?B*r/(1-Math.pow(1+r,-n)):B/n}
+function run(){var base=(+$("tu").value||0)+(+$("hf").value||0)+(+$("bk").value||0)+(+$("ot").value||0),Y=Math.round(+$("yrs").value),g=(+$("gr").value||0)/100,f=((+$("gt").value||0)+(+$("fm").value||0))*Y;
+var big=$("big"),sub=$("sub"),sv=$("sv");big.classList.remove("err");sv.hidden=true;
+if(!(base>0)||!(Y>=1)){big.textContent="Enter your costs";sub.textContent="Add at least one yearly cost and the years of study.";$("pb").style.width="0";$("pct").textContent="";return}
+var t=0;for(var k=0;k<Y;k++)t+=base*Math.pow(1+g,k);
+var gap=t-f,pc=Math.min(100,f/t*100);$("pb").style.width=pc+"%";$("pct").textContent=pc.toFixed(0)+"% of the total";
+sub.textContent="Total cost over "+Y+" years: "+fmt(t)+". Help you expect: "+fmt(f)+".";
+if(gap<=0){big.textContent="Fully covered";return}
+big.textContent=fmt(gap)+" left to cover";
+sv.hidden=false;sv.innerHTML="If you borrowed all of it at 6% over 10 years, the payment would be about <strong>"+fmt(pay(gap,6,120))+" a month</strong>. Try the <a href='index.html#calculator' style='color:var(--gold)'>loan payoff calculator</a> with your real numbers."}
+document.querySelectorAll("input").forEach(function(e){e.addEventListener("input",run)});run();
+</script></body></html>
