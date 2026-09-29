@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPA Calculator – Free Semester & Cumulative GPA | Stipendex</title>
+<meta name="description" content="Free GPA calculator. Add your courses, grades and credits to get your semester GPA, then add your current GPA to see your new cumulative GPA. No sign-up.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="GPA Calculator – Free Semester & Cumulative GPA">
+<meta property="og:description" content="Add your courses, grades and credits. Get your semester and cumulative GPA instantly.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;
+--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}
+nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2rem 0 4rem;align-items:start}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.15fr;padding-top:3.5rem}}
+h1{font:800 clamp(2.3rem,6vw,3.8rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}
+h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.5rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+label,.hd{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input,select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.6rem .6rem;font:500 1rem var(--body)}
+input:focus,select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.row{display:grid;grid-template-columns:1fr 5.2rem 4.4rem 2.2rem;gap:.5rem;align-items:center;margin-bottom:.5rem}
+.row.h{margin-bottom:.2rem}
+.x{background:none;border:1px solid var(--line);color:var(--mute);border-radius:.6rem;height:2.6rem;cursor:pointer;font-size:1.1rem}
+.x:hover{color:var(--warn);border-color:var(--warn)}
+.add{margin:.4rem 0 1.2rem;background:transparent;color:var(--gold);border:1px dashed var(--gold);border-radius:.6rem;padding:.6rem 1rem;font:700 .95rem var(--body);cursor:pointer;width:100%}
+.cum{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.4rem}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(2.2rem,5vw,3rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.2rem 0 0}
+.save{margin-top:1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}
+.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .8rem}
+.two{display:grid;gap:2.5rem}
+@media(min-width:60rem){.two{grid-template-columns:1.2fr 1fr}}
+.ex{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem;margin:1rem 0}
+table{border-collapse:collapse;width:100%;max-width:26rem}
+th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:500;font-size:.9rem}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}
+summary{cursor:pointer;font:700 1.05rem var(--head)}
+details p{color:var(--mute);margin:.6rem 0 0}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="index.html"><i></i>Stipendex</a>
+  <nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>Work out your <span>GPA</span> in a minute.</h1>
+    <p class="lead">Add your courses, pick a grade for each, and enter the credits. You get your semester GPA straight away. Already have a GPA? Add it to see your new cumulative GPA.</p>
+    <p class="lead">Free, no sign-up, and nothing you type leaves your device.</p>
+  </div>
+
+  <div class="calc" id="calculator">
+    <h2>GPA calculator (4.0 scale)</h2>
+    <div class="row h"><span class="hd">Course (optional)</span><span class="hd">Grade</span><span class="hd">Credits</span><span></span></div>
+    <div id="rows"></div>
+    <button class="add" id="add" type="button">+ Add a course</button>
+    <div class="cum">
+      <div><label for="cg">Current GPA (optional)</label><input id="cg" type="number" min="0" max="4.3" step="0.01" placeholder="e.g. 3.20" inputmode="decimal"></div>
+      <div><label for="cc">Credits so far (optional)</label><input id="cc" type="number" min="0" step="1" placeholder="e.g. 30" inputmode="decimal"></div>
+    </div>
+    <div class="out" aria-live="polite">
+      <div class="big" id="gpa"></div>
+      <p class="sub" id="det"></p>
+      <div class="save" id="cumbox" hidden></div>
+    </div>
+  </div>
+</div>
+
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+
+<section>
+  <div class="two">
+    <div>
+      <h2 class="t">How GPA is calculated</h2>
+      <p>Each grade is worth grade points. You multiply those points by the course's credits, add everything up, then divide by your total credits.</p>
+      <div class="ex">
+        <p style="margin:0"><strong>Example:</strong> an A (4.0) in a 3-credit course is 12 points. A B (3.0) in a 4-credit course is 12 points. Together that's 24 points over 7 credits, so your GPA is 24 ÷ 7 = <strong>3.43</strong>.</p>
+      </div>
+      <p>Harder or longer courses count for more because they have more credits. That's why one bad grade in a 4-credit class hurts more than in a 1-credit class.</p>
+    </div>
+    <div>
+      <h2 class="t">Grade points</h2>
+      <table>
+        <tr><th>Grade</th><th>Points</th></tr>
+        <tr><td>A+ / A</td><td>4.0</td></tr><tr><td>A-</td><td>3.7</td></tr>
+        <tr><td>B+</td><td>3.3</td></tr><tr><td>B</td><td>3.0</td></tr><tr><td>B-</td><td>2.7</td></tr>
+        <tr><td>C+</td><td>2.3</td></tr><tr><td>C</td><td>2.0</td></tr><tr><td>C-</td><td>1.7</td></tr>
+        <tr><td>D+</td><td>1.3</td></tr><tr><td>D</td><td>1.0</td></tr><tr><td>D-</td><td>0.7</td></tr>
+        <tr><td>F</td><td>0.0</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="t">Common questions</h2>
+  <details><summary>Is an A+ worth 4.0 or 4.3?</summary><p>It depends on your school. Many schools cap at 4.0, and some give an A+ 4.3. This calculator uses 4.0. Check your school's grading policy for the exact scale.</p></details>
+  <details><summary>Does this work for weighted GPA?</summary><p>No. This is an unweighted 4.0 calculator. Weighted GPAs add extra points for honors or AP classes, and schools do that differently.</p></details>
+  <details><summary>How do I find my cumulative GPA?</summary><p>Enter this semester's courses, then fill in your current GPA and the credits you've already finished. The calculator combines them for you.</p></details>
+</section>
+</main>
+
+<footer>
+  <p>© 2026 Stipendex. Results are estimates. Your school's official GPA is the one that counts.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var G=[["A+",4],["A",4],["A-",3.7],["B+",3.3],["B",3],["B-",2.7],["C+",2.3],["C",2],["C-",1.7],["D+",1.3],["D",1],["D-",.7],["F",0]];
+function row(name,grade,cr){
+  var d=document.createElement("div");d.className="row";
+  var opts=G.map(function(g){return '<option value="'+g[1]+'"'+(g[0]===grade?" selected":"")+'>'+g[0]+'</option>'}).join("");
+  d.innerHTML='<input type="text" placeholder="Course" aria-label="Course name" value="'+name+'"><select aria-label="Grade">'+opts+'</select><input type="number" min="0" step="0.5" aria-label="Credits" inputmode="decimal" value="'+cr+'"><button class="x" type="button" aria-label="Remove course">×</button>';
+  $("rows").appendChild(d);
+}
+[["Calculus","A-",4],["English","B+",3],["Biology","B",4],["History","A",3]].forEach(function(r){row(r[0],r[1],r[2])});
+function run(){
+  var pts=0,cr=0;
+  document.querySelectorAll("#rows .row").forEach(function(r){
+    var c=parseFloat(r.querySelector("input[type=number]").value);
+    if(c>0){pts+=parseFloat(r.querySelector("select").value)*c;cr+=c}
+  });
+  var g=$("gpa"),d=$("det"),cb=$("cumbox");g.classList.remove("err");cb.hidden=true;
+  if(cr<=0){g.classList.add("err");g.textContent="Add credits";d.textContent="Enter the credits for at least one course.";return}
+  var s=pts/cr;
+  g.textContent="Semester GPA "+s.toFixed(2);
+  d.textContent=cr+" credits this semester, "+pts.toFixed(1)+" grade points.";
+  var cg=parseFloat($("cg").value),cc=parseFloat($("cc").value);
+  if(cg>=0&&cc>0){var n=(cg*cc+pts)/(cc+cr);cb.hidden=false;cb.innerHTML="Your new cumulative GPA: <strong>"+n.toFixed(2)+"</strong> over "+(cc+cr)+" credits."}
+}
+$("add").addEventListener("click",function(){row("","B",3);run()});
+$("rows").addEventListener("input",run);$("rows").addEventListener("change",run);
+$("rows").addEventListener("click",function(e){if(e.target.classList.contains("x")&&document.querySelectorAll("#rows .row").length>1){e.target.parentNode.remove();run()}});
+$("cg").addEventListener("input",run);$("cc").addEventListener("input",run);
+run();
+})();
+</script>
+</body>
+</html>
