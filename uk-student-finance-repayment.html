@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Student Loan Repayment Calculator 2026/27 | Stipendex</title><meta name="description" content="Free UK student loan repayment calculator for 2026/27. Pick Plan 1, 2, 4 or 5, enter your salary and see what is taken each month. No sign-up."><meta name="color-scheme" content="dark">
+<meta property="og:title" content="UK Student Loan Repayment Calculator 2026/27"><meta property="og:description" content="Free UK student loan repayment calculator for 2026/27. Pick Plan 1, 2, 4 or 5, enter your salary and see what is taken each month. No sign-up."><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2rem 0 4rem;align-items:start}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.1fr;padding-top:3.5rem}.two{grid-template-columns:1.2fr 1fr}}
+h1{font:800 clamp(2.3rem,6vw,3.8rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.2rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}.full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}
+input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(1.9rem,5vw,2.6rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.3rem 0 1rem}
+.bar{display:flex;height:.7rem;border-radius:1rem;overflow:hidden;background:var(--line)}.bar b{display:block;transition:width .35s}
+.key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;font-size:.85rem;color:var(--mute);margin-top:.5rem}
+.save{margin-top:1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .8rem}
+.two{display:grid;gap:2.5rem}.ex{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem;margin:1rem 0}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+
+select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}.chk{display:flex;gap:.6rem;align-items:center;font-size:1rem;color:var(--text);margin:0}.chk input{width:auto}.tblx{width:100%;border-collapse:collapse;margin:.6rem 0}.tblx td,.tblx th{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line)}.tblx th{color:var(--mute);font-weight:500;font-size:.9rem}
+</style></head><body><div class="wrap">
+<header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
+<main><div class="hero"><div><h1>What will your <span>student loan</span> take from your pay?</h1>
+<p class="lead">Pick your UK loan plan and enter your yearly salary before tax. See what is taken each month, and how the same salary compares on every plan.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
+<div class="calc"><h2>UK student loan repayment calculator (2026/27)</h2><div class="grid">
+<div class="full"><label for="plan">Your loan plan</label><select id="plan"><option value="p2">Plan 2 (England and Wales, 2012 to 2023)</option><option value="p5">Plan 5 (England, from August 2023)</option><option value="p1">Plan 1 (before 2012, or Northern Ireland)</option><option value="p4">Plan 4 (Scotland)</option></select></div>
+<div class="full"><label for="sal">Yearly salary before tax (£)</label><input id="sal" type="number" min="0" step="500" value="35000" inputmode="decimal"></div>
+<div class="full"><label class="chk"><input id="pg" type="checkbox"> I also have a postgraduate loan</label></div></div>
+<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="save" id="sv" hidden></div></div></div></div>
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+<section><div class="two"><div><h2 class="t">How UK student loan repayments work</h2>
+<p>You only repay when you earn above a threshold that depends on your plan. Then you repay <strong>9%</strong> of everything above it, or <strong>6%</strong> for a postgraduate loan. The money is taken from your pay automatically.</p>
+<div class="ex"><p style="margin:0"><strong>Example:</strong> Plan 2, £35,000 salary. £35,000 − £29,385 = £5,615. 9% of that is £505.35 a year, or about <strong>£42.11 a month</strong>.</p></div>
+<p>Your monthly repayment depends on your salary, not on how much you owe. Interest affects how long it takes, not what is taken each month.</p></div>
+<div><h2 class="t">Thresholds for 2026/27</h2>
+<table class="tblx"><tr><th>Plan</th><th>You repay above</th><th>Written off after</th></tr>
+<tr><td>Plan 1</td><td>£26,900</td><td>25 years*</td></tr><tr><td>Plan 2</td><td>£29,385</td><td>30 years</td></tr><tr><td>Plan 4</td><td>£33,795</td><td>30 years</td></tr><tr><td>Plan 5</td><td>£25,000</td><td>40 years</td></tr><tr><td>Postgraduate</td><td>£21,000 (at 6%)</td><td>30 years</td></tr></table>
+<p class="sub">*Some older Plan 1 loans end at age 65. Thresholds change most years. Check gov.uk for the latest.</p></div></div></section>
+<section><h2 class="t">Common questions</h2>
+<details><summary>Which plan am I on?</summary><p>It depends on where and when you started your course. Log in to your student loan account or check gov.uk to see your plan. If you're unsure, don't guess.</p></details>
+<details><summary>Can I have two loans at once?</summary><p>Yes. If you also have a postgraduate loan, you repay it at the same time as your main loan. Tick the box above to include it.</p></details>
+<details><summary>Is this exact?</summary><p>It's an estimate. Real deductions are worked out each pay period, so your payslip may differ slightly. Bonuses and overtime can change it too.</p></details></section></main><footer><p>© 2026 Stipendex. Results are estimates for planning, not financial advice. <a href="privacy.html">Privacy policy</a></p></footer></div><script>
+var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-GB",{style:"currency",currency:"GBP",maximumFractionDigits:0})},fmt2=function(n){return n.toLocaleString("en-GB",{style:"currency",currency:"GBP",minimumFractionDigits:2,maximumFractionDigits:2})};
+var P={p1:["Plan 1",26900,"25 years"],p2:["Plan 2",29385,"30 years"],p4:["Plan 4",33795,"30 years"],p5:["Plan 5",25000,"40 years"]};
+function rep(s,t){return Math.max(0,s-t)*0.09}
+function run(){var s=+$("sal").value,k=$("plan").value,pg=$("pg").checked,big=$("big"),sub=$("sub"),sv=$("sv");
+if(!(s>0)){big.textContent="Enter your salary";sub.textContent="Your yearly salary needs to be above zero.";sv.hidden=true;return}
+var t=P[k][1],pgy=pg?Math.max(0,s-21000)*0.06:0,y=rep(s,t)+pgy;
+big.textContent=fmt2(y/12)+" a month";
+sub.textContent=y>0?"That's "+fmt(y)+" a year, about "+(y/s*100).toFixed(1)+"% of your pay before tax.":"You earn below the "+fmt(t)+" threshold for "+P[k][0]+", so nothing is taken.";
+var h="Same salary on each plan"+(pg?" (plus your postgraduate loan)":"")+":<br>";
+["p1","p2","p4","p5"].forEach(function(q){h+=P[q][0]+": <strong>"+fmt2((rep(s,P[q][1])+pgy)/12)+"</strong> a month<br>"});
+h+="Your plan is written off after about "+P[k][2]+".";sv.hidden=false;sv.innerHTML=h}
+$("sal").addEventListener("input",run);$("plan").addEventListener("change",run);$("pg").addEventListener("change",run);run();
+</script></body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Degree Classification Calculator – First, 2:1, 2:2 | Stipendex</title><meta name="description" content="Free UK degree classification calculator. Enter your year averages and weightings to see your likely degree class and what you need in your final year."><meta name="color-scheme" content="dark">
+<meta property="og:title" content="UK Degree Classification Calculator – First, 2:1, 2:2"><meta property="og:description" content="Free UK degree classification calculator. Enter your year averages and weightings to see your likely degree class and what you need in your final year."><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2rem 0 4rem;align-items:start}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.1fr;padding-top:3.5rem}.two{grid-template-columns:1.2fr 1fr}}
+h1{font:800 clamp(2.3rem,6vw,3.8rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.2rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}.full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}
+input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(1.9rem,5vw,2.6rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.3rem 0 1rem}
+.bar{display:flex;height:.7rem;border-radius:1rem;overflow:hidden;background:var(--line)}.bar b{display:block;transition:width .35s}
+.key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;font-size:.85rem;color:var(--mute);margin-top:.5rem}
+.save{margin-top:1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .8rem}
+.two{display:grid;gap:2.5rem}.ex{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem;margin:1rem 0}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+
+select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}.chk{display:flex;gap:.6rem;align-items:center;font-size:1rem;color:var(--text);margin:0}.chk input{width:auto}.tblx{width:100%;border-collapse:collapse;margin:.6rem 0}.tblx td,.tblx th{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line)}.tblx th{color:var(--mute);font-weight:500;font-size:.9rem}
+</style></head><body><div class="wrap">
+<header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
+<main><div class="hero"><div><h1>Which <span>degree class</span> are you heading for?</h1>
+<p class="lead">Enter your average mark for each year and how much each year counts. See your likely classification, and what you'd need in your final year to reach the next one.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
+<div class="calc"><h2>UK degree classification calculator</h2><div class="grid">
+<div><label for="m1">Year 1 average mark (%)</label><input id="m1" type="number" min="0" max="100" step="0.1" inputmode="decimal" placeholder="Optional"></div>
+<div><label for="w1">Year 1 counts for (%)</label><input id="w1" type="number" min="0" max="100" step="1" value="0" inputmode="decimal"></div>
+<div><label for="m2">Year 2 average mark (%)</label><input id="m2" type="number" min="0" max="100" step="0.1" value="64" inputmode="decimal"></div>
+<div><label for="w2">Year 2 counts for (%)</label><input id="w2" type="number" min="0" max="100" step="1" value="33" inputmode="decimal"></div>
+<div><label for="m3">Final year average mark (%)</label><input id="m3" type="number" min="0" max="100" step="0.1" inputmode="decimal" placeholder="Leave blank if not known yet"></div>
+<div><label for="w3">Final year counts for (%)</label><input id="w3" type="number" min="0" max="100" step="1" value="67" inputmode="decimal"></div></div>
+<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="save" id="sv" hidden></div></div></div></div>
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+<section><div class="two"><div><h2 class="t">How degree classes work</h2>
+<p>Most UK universities turn your marks into a weighted average, then match it to a class. Years that count more, usually the final year, pull the average harder.</p>
+<div class="ex"><p style="margin:0"><strong>Common boundaries:</strong> First 70% and above, 2:1 60% to 69%, 2:2 50% to 59%, Third 40% to 49%.</p></div>
+<p>The starting weights above (Year 1 counts for 0%, Year 2 for 33%, final year for 67%) are common, but change them to match your university.</p></div>
+<div><h2 class="t">What this can't know</h2><p>Universities differ. Some use the best marks from your credits, some have borderline rules that lift students just under a boundary, and some count year 1. Your course handbook has the official rules, so this is an estimate only.</p></div></div></section>
+<section><h2 class="t">Common questions</h2>
+<details><summary>Does first year count?</summary><p>At many universities it doesn't, but at some it counts for a small share. Check your handbook and set the first-year weight to match.</p></details>
+<details><summary>What if I'm just below a boundary?</summary><p>Many universities look again at students a point or two below a boundary, for example if most of their credits are in the higher class. Ask your department how it works.</p></details></section></main><footer><p>© 2026 Stipendex. Results are estimates for planning, not financial advice. <a href="privacy.html">Privacy policy</a></p></footer></div><script>
+var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-GB",{style:"currency",currency:"GBP",maximumFractionDigits:0})},fmt2=function(n){return n.toLocaleString("en-GB",{style:"currency",currency:"GBP",minimumFractionDigits:2,maximumFractionDigits:2})};
+function cls(a){return a>=70?"First-class honours (a First)":a>=60?"Upper second (a 2:1)":a>=50?"Lower second (a 2:2)":a>=40?"Third-class honours":"Below a Third"}
+function run(){var big=$("big"),sub=$("sub"),sv=$("sv");sv.hidden=true;
+var m=[+$("m1").value,+$("m2").value,+$("m3").value],has=[$("m1").value!=="",$("m2").value!=="",$("m3").value!==""],w=[+$("w1").value||0,+$("w2").value||0,+$("w3").value||0],S=0,W=0;
+for(var i=0;i<3;i++)if(has[i]&&w[i]>0){S+=m[i]*w[i];W+=w[i]}
+if(W===0){big.textContent="Enter your marks";sub.textContent="Add at least one year's average mark that counts towards your degree.";return}
+var a=S/W,done=has[2]&&w[2]>0,h="";
+big.textContent=cls(a)+(done?"":" so far");
+sub.textContent="Weighted average: "+a.toFixed(1)+"%"+(done?".":", from the years you've entered.");
+if(!done&&w[2]>0){h="Average you'd need in your final year for:<br>";[["a First",70],["a 2:1",60],["a 2:2",50]].forEach(function(t){var n=(t[1]*(W+w[2])-S)/w[2];h+=t[0]+": "+(n>100?"not possible":n<=0?"already secured":"<strong>"+n.toFixed(1)+"%</strong>")+"<br>"})}
+else{var x=a>=70?null:a>=60?[70,"a First"]:a>=50?[60,"a 2:1"]:a>=40?[50,"a 2:2"]:[40,"a Third"];h=x?"You're "+(x[0]-a).toFixed(1)+" percentage points below "+x[1]+".":"You're in the top classification.";h+=" Many universities review results just under a boundary, so check your handbook."}
+sv.hidden=false;sv.innerHTML=h}
+document.querySelectorAll("input").forEach(function(e){e.addEventListener("input",run)});run();
+</script></body></html>
