@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Savings Goal Calculator – How Much to Save Each Month | Stipendex</title><meta name="description" content="Free savings goal calculator. Enter your goal, what you've saved and your deadline to see how much to save each month, or how long it takes at your own pace."><meta name="color-scheme" content="dark">
+<meta property="og:title" content="Savings Goal Calculator – How Much to Save Each Month"><meta property="og:description" content="Free savings goal calculator. Enter your goal, what you've saved and your deadline to see how much to save each month, or how long it takes at your own pace."><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2rem 0 4rem;align-items:start}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.1fr;padding-top:3.5rem}.two{grid-template-columns:1.2fr 1fr}}
+h1{font:800 clamp(2.3rem,6vw,3.8rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.2rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}.full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}
+input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(1.9rem,5vw,2.6rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.3rem 0 1rem}
+.bar{display:flex;height:.7rem;border-radius:1rem;overflow:hidden;background:var(--line)}.bar b{display:block;transition:width .35s}
+.key{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;font-size:.85rem;color:var(--mute);margin-top:.5rem}
+.save{margin-top:1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .8rem}
+.two{display:grid;gap:2.5rem}.ex{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem;margin:1rem 0}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+
+</style></head><body><div class="wrap">
+<header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
+<main><div class="hero"><div>
+<h1>How much should you <span>save</span> each month?</h1>
+<p class="lead">Tell us what you're saving for, how much you have, and when you need it. You get the monthly amount to hit your goal, or how long it takes at your own pace.</p>
+<p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
+<div class="calc"><h2>Savings goal planner</h2><div class="grid">
+<div><label for="g">Goal amount ($)</label><input id="g" type="number" min="0" step="50" value="3000" inputmode="decimal"></div>
+<div><label for="s">Already saved ($)</label><input id="s" type="number" min="0" step="50" value="400" inputmode="decimal"></div>
+<div><label for="m">Months until you need it</label><input id="m" type="number" min="1" step="1" value="10" inputmode="decimal"></div>
+<div><label for="a">Savings interest (% a year)</label><input id="a" type="number" min="0" step="0.1" value="4" inputmode="decimal"></div>
+<div class="full"><label for="c">Optional: what you can save a month ($)</label><input id="c" type="number" min="0" step="10" value="200" inputmode="decimal"></div></div>
+<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div>
+<div class="bar" aria-hidden="true"><b id="pb" style="background:var(--teal)"></b></div><div class="key"><span>Saved so far</span><span id="pct"></span></div>
+<div class="save" id="sv" hidden></div></div></div></div>
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+<section><div class="two"><div><h2 class="t">How the savings goal works</h2>
+<p>Take your goal, subtract what you already have, and split the rest across the months you have left. If your savings earn interest, you need to put in a bit less each month.</p>
+<div class="ex"><p style="margin:0"><strong>Example:</strong> a $1,200 goal, $0 saved, 12 months, no interest. $1,200 ÷ 12 = <strong>$100 a month</strong>.</p></div></div>
+<div><h2 class="t">Quick tips</h2><p>Set up an automatic transfer on payday so you save before you spend. Keep the money in a separate savings account so it's harder to touch.</p></div></div></section>
+<section><h2 class="t">Common questions</h2>
+<details><summary>Do I need to include interest?</summary><p>No. Set the interest to 0 and it's plain division. Many student savings accounts pay a small rate, so 0 is a safe, cautious choice.</p></details>
+<details><summary>What if I can't save enough each month?</summary><p>Fill in the box for what you can save. The planner shows how many months it will take, so you can move your date or lower your goal.</p></details></section></main>
+<footer><p>© 2026 Stipendex. Results are estimates for planning, not financial advice.</p></footer>
+</div><script>
+var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0})};
+function span(m){var y=Math.floor(m/12),o=m%12,s="";if(y)s+=y+(y===1?" year":" years");if(o)s+=(s?" ":"")+o+(o===1?" month":" months");return s||"0 months"}
+function run(){var G=+$("g").value,S=+$("s").value||0,M=Math.round(+$("m").value),A=+$("a").value||0,C=+$("c").value||0,r=A/1200;
+var big=$("big"),sub=$("sub"),sv=$("sv");big.classList.remove("err");sv.hidden=true;
+if(!(G>0)||!(M>=1)){big.textContent="Enter your goal";sub.textContent="Goal amount and months both need to be above zero.";$("pb").style.width="0";$("pct").textContent="";return}
+var pct=Math.min(100,S/G*100);$("pb").style.width=pct+"%";$("pct").textContent=pct.toFixed(0)+"% of goal";
+var g=r>0?Math.pow(1+r,M):1,need=G-S*g;
+if(need<=0){big.textContent="You're on track";sub.textContent="Your "+fmt(S)+" alone grows to "+fmt(S*g)+" in "+M+" months. No monthly saving needed."}
+else{var d=r>0?need*r/(g-1):need/M;big.textContent=fmt(d)+" a month";
+var i=G-S-d*M;sub.textContent="For "+M+" months to reach "+fmt(G)+" (about "+fmt(d*12/52)+" a week). You put in "+fmt(d*M)+(i>=1?" and interest adds about "+fmt(i):"")+"."}
+if(C>0&&G>S){var n=r>0?Math.log((G*r+C)/(S*r+C))/Math.log(1+r):(G-S)/C;n=Math.ceil(n-1e-9);sv.hidden=false;sv.innerHTML="Saving <strong>"+fmt(C)+" a month</strong>, you reach your goal in <strong>"+span(n)+"</strong>."}}
+document.querySelectorAll("input").forEach(function(e){e.addEventListener("input",run)});run();
+</script></body></html>
