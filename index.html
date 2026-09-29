@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stipendex – Free Student Loan & Money Calculators</title>
+<meta name="description" content="See exactly when your student loans end. Free, no-sign-up calculators for students and graduates: loan payoff, savings goals, budgets and GPA.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Stipendex – Free Student Loan & Money Calculators">
+<meta property="og:description" content="See exactly when your student loans end, and how much extra payments save you.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Stipendex","description":"Free calculators for students and graduates."}</script>
+<style>
+:root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;
+--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--body);
+background-image:radial-gradient(60rem 30rem at 85% -10%,#1c2452 0,transparent 60%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.logo{font:800 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo i{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--gold);margin-right:.35em;box-shadow:inset -.12em -.12em 0 #c98d1e}
+nav a{margin-left:1.4rem;text-decoration:none;color:var(--mute);font-weight:500}
+nav a:hover{color:var(--text)}
+.hero{display:grid;gap:2.5rem;padding:2.5rem 0 4rem;align-items:center}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.05fr;padding-top:4rem}}
+h1{font:800 clamp(2.4rem,6vw,4.2rem)/1.02 var(--head);letter-spacing:-.035em;margin:0 0 1.2rem}
+h1 span{color:var(--gold)}
+.lead{color:var(--mute);max-width:32rem;margin:0 0 1.5rem}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;color:var(--mute);font-size:.95rem;padding:0;list-style:none;margin:0}
+.facts li:before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:var(--teal);margin-right:.5rem}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 80px -30px #000}
+.calc h2{font:700 1.15rem/1.2 var(--head);margin:0 0 1rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.grid .full{grid-column:1/-1}
+label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:.3rem}
+input{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}
+input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chips button{flex:1;min-width:4rem;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.55rem;font:600 .95rem var(--body);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--gold);color:#1a1200;border-color:var(--gold)}
+.out{margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+.big{font:800 clamp(1.8rem,4vw,2.5rem)/1.1 var(--head);letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.95rem;margin:.2rem 0 1rem}
+.bar{display:flex;height:.7rem;border-radius:1rem;overflow:hidden;background:var(--line)}
+.bar b{display:block;background:var(--teal);transition:width .35s}
+.bar em{display:block;background:var(--gold);flex:1}
+.key{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mute);margin-top:.4rem}
+.save{margin-top:1.1rem;background:#5fd4c414;border:1px solid #5fd4c440;border-radius:.8rem;padding:.9rem 1rem}
+.save strong{color:var(--teal)}
+.err{color:var(--warn)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2.t{font:800 clamp(1.7rem,4vw,2.4rem)/1.1 var(--head);letter-spacing:-.03em;margin:0 0 .6rem}
+.tabs{display:flex;gap:.4rem;margin:1.5rem 0 1rem;border-bottom:1px solid var(--line)}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;color:var(--mute);padding:.6rem 1rem;font:700 1rem var(--body);cursor:pointer;margin-bottom:-1px}
+.tabs button[aria-selected=true]{color:var(--text);border-color:var(--gold)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rows b{font:700 1.15rem var(--head)}
+.rows p{margin:.15rem 0 0;color:var(--mute);font-size:.95rem}
+.tag{font-size:.8rem;font-weight:700;padding:.2rem .6rem;border-radius:2rem;white-space:nowrap;border:1px solid var(--line);color:var(--mute)}
+.tag.live{background:var(--gold);color:#1a1200;border-color:var(--gold);text-decoration:none}
+.two{display:grid;gap:2rem}
+@media(min-width:60rem){.two{grid-template-columns:1fr 1.3fr}}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#top"><i></i>Stipendex</a>
+  <nav aria-label="Main"><a href="#tools">Calculators</a><a href="#guides">Guides</a></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div>
+    <h1>See exactly when your <span>student loans</span> end.</h1>
+    <p class="lead">Free money calculators for students and graduates. Type in your loan, see your payoff date, and find out what a little extra each month saves you.</p>
+    <ul class="facts"><li>No sign-up</li><li>Nothing is saved or sent</li><li>US tools live now</li></ul>
+  </div>
+
+  <div class="calc" id="calculator">
+    <h2>Student loan payoff calculator</h2>
+    <div class="grid">
+      <div class="full"><label for="bal">Loan balance ($)</label><input id="bal" type="number" min="0" step="100" value="28000" inputmode="decimal"></div>
+      <div><label for="apr">Interest rate (% a year)</label><input id="apr" type="number" min="0" step="0.05" value="5.5" inputmode="decimal"></div>
+      <div><label for="pay">Monthly payment ($)</label><input id="pay" type="number" min="0" step="10" value="320" inputmode="decimal"></div>
+      <div class="full"><label id="xl">Pay extra each month</label>
+        <div class="chips" role="group" aria-labelledby="xl">
+          <button type="button" data-x="0" aria-pressed="false">$0</button>
+          <button type="button" data-x="50" aria-pressed="false">$50</button>
+          <button type="button" data-x="100" aria-pressed="true">$100</button>
+          <button type="button" data-x="200" aria-pressed="false">$200</button>
+        </div>
+      </div>
+    </div>
+    <div class="out" aria-live="polite">
+      <div class="big" id="when"></div>
+      <div class="sub" id="int"></div>
+      <div class="bar" aria-hidden="true"><b id="pb"></b><em></em></div>
+      <div class="key"><span>Amount borrowed</span><span>Interest you pay</span></div>
+      <div class="save" id="save" hidden></div>
+    </div>
+  </div>
+</div>
+
+<!-- AD SLOT 1: paste ad code here once your ad account is approved -->
+
+<section id="tools">
+  <h2 class="t">Calculators, by country</h2>
+  <p class="lead">Loan rules differ from country to country, so each one gets its own tools.</p>
+  <div class="tabs" role="tablist" aria-label="Country">
+    <button role="tab" aria-selected="true" data-c="us" id="t-us" aria-controls="p-us">United States</button>
+    <button role="tab" aria-selected="false" data-c="uk" id="t-uk" aria-controls="p-uk">United Kingdom</button>
+    <button role="tab" aria-selected="false" data-c="in" id="t-in" aria-controls="p-in">India</button>
+  </div>
+  <ul class="rows" role="tabpanel" id="p-us" aria-labelledby="t-us">
+    <li><div><b>Student loan payoff</b><p>When will I be debt-free, and what does extra payment save?</p></div><a class="tag live" href="#calculator">Use it now</a></li>
+    <li><div><b>GPA calculator</b><p>Work out your semester and cumulative GPA.</p></div><span class="tag">Coming soon</span></li>
+    <li><div><b>Savings goal planner</b><p>How much to save each month to hit a target by a date.</p></div><span class="tag">Coming soon</span></li>
+    <li><div><b>Student budget planner</b><p>Split your money between rent, food and fun.</p></div><span class="tag">Coming soon</span></li>
+  </ul>
+  <ul class="rows" role="tabpanel" id="p-uk" aria-labelledby="t-uk" hidden>
+    <li><div><b>Student Finance repayment</b><p>What you repay each month after graduating.</p></div><span class="tag">Coming soon</span></li>
+    <li><div><b>Degree classification calculator</b><p>Estimate your final degree grade from module marks.</p></div><span class="tag">Coming soon</span></li>
+  </ul>
+  <ul class="rows" role="tabpanel" id="p-in" aria-labelledby="t-in" hidden>
+    <li><div><b>Education loan EMI</b><p>Monthly instalment and total interest on an education loan.</p></div><span class="tag">Coming soon</span></li>
+    <li><div><b>CGPA to percentage</b><p>Convert your CGPA to a percentage in seconds.</p></div><span class="tag">Coming soon</span></li>
+  </ul>
+</section>
+
+<section id="guides">
+  <div class="two">
+    <div><h2 class="t">Plain-English guides</h2><p class="lead">Short explainers that go with each calculator, so the numbers make sense.</p></div>
+    <ul class="rows">
+      <li><div><b>How student loan interest really works</b><p>Why your balance can grow even while you pay.</p></div><span class="tag">Soon</span></li>
+      <li><div><b>Pay extra now, or save first?</b><p>A simple way to decide.</p></div><span class="tag">Soon</span></li>
+      <li><div><b>How GPA is calculated</b><p>Credits, grade points and the maths behind them.</p></div><span class="tag">Soon</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© 2026 Stipendex. Results are estimates for learning, not financial advice. Check real figures with your lender.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var extra=100;
+var fmt=function(n){return n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0})};
+function sim(B,apr,P){
+  var r=apr/1200,bal=B,m=0,t=0;
+  while(bal>0.005&&m<1200){var i=bal*r;t+=i;bal+=i-P;m++;if(P<=i&&m>1)return null}
+  return bal>0.005?null:{m:m,t:t}
+}
+function span(m){var y=Math.floor(m/12),mo=m%12,s="";if(y)s+=y+(y===1?" year":" years");if(mo)s+=(s?" ":"")+mo+(mo===1?" month":" months");return s||"under a month"}
+function run(){
+  var B=+$("bal").value,a=+$("apr").value,P=+$("pay").value;
+  var when=$("when"),int=$("int"),pb=$("pb"),sv=$("save");
+  when.classList.remove("err");sv.hidden=true;
+  if(!(B>0)||!(P>0)||a<0){when.textContent="Enter your loan details";int.textContent="Balance and payment need to be above zero.";pb.style.width="0";return}
+  var base=sim(B,a,P);
+  if(!base){when.classList.add("err");when.textContent="Payment is too low";int.textContent="Your payment doesn't cover the "+fmt(B*a/1200)+" interest added each month, so the loan never ends.";pb.style.width="0";return}
+  when.textContent="Debt-free in "+span(base.m);
+  int.textContent="You'll pay "+fmt(base.t)+" in interest on top of "+fmt(B)+".";
+  pb.style.width=(B/(B+base.t)*100)+"%";
+  if(extra>0){
+    var f=sim(B,a,P+extra);
+    if(f){sv.hidden=false;sv.innerHTML="Adding <strong>"+fmt(extra)+" a month</strong> ends your loan <strong>"+span(base.m-f.m)+" sooner</strong> and saves <strong>"+fmt(base.t-f.t)+"</strong> in interest."}
+  }
+}
+["bal","apr","pay"].forEach(function(i){$(i).addEventListener("input",run)});
+document.querySelectorAll(".chips button").forEach(function(b){b.addEventListener("click",function(){
+  extra=+b.dataset.x;document.querySelectorAll(".chips button").forEach(function(o){o.setAttribute("aria-pressed",o===b)});run()})});
+document.querySelectorAll(".tabs button").forEach(function(b){b.addEventListener("click",function(){
+  document.querySelectorAll(".tabs button").forEach(function(o){var on=o===b;o.setAttribute("aria-selected",on);$("p-"+o.dataset.c).hidden=!on})})});
+run();
+})();
+</script>
+</body>
+</html>
