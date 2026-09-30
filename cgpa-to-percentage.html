@@ -39,7 +39,29 @@ details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:point
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 
 select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}.tblx{width:100%;border-collapse:collapse;margin:.6rem 0}.tblx td,.tblx th{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line)}.tblx th{color:var(--mute);font-weight:500;font-size:.9rem}
-</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/cgpa-to-percentage.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/cgpa-to-percentage.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
+
+/* Phase 3 — mobile UX, accessibility and touch targets */
+@media(max-width:59.99rem){
+  .wrap{padding-left:1rem;padding-right:1rem}
+  header{flex-wrap:wrap;gap:.8rem}
+  nav{display:flex;flex-wrap:wrap;gap:.7rem .9rem}
+  nav a{margin-left:0}
+  .hero{gap:1.5rem;padding-bottom:3rem}
+  .grid{grid-template-columns:1fr}
+  .calc{padding:1.15rem}
+  .tabs{overflow-x:auto;scrollbar-width:thin}
+  .tabs button{white-space:nowrap;min-height:2.75rem}
+  .chips button{min-height:2.75rem}
+  input,select{min-height:2.75rem}
+  table{max-width:100%;font-size:.95rem}
+}
+
+/* Phase 3 — control touch targets */
+button{min-height:2.75rem}
+input,select{min-height:2.75rem}
+/* Prevent long prose/table content from forcing the page wider than the viewport. */
+.prose{overflow-wrap:anywhere}
+''</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/cgpa-to-percentage.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/cgpa-to-percentage.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
 <header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
 <main><div class="hero"><div><h1>Turn your <span>CGPA</span> into a percentage.</h1>
 <p class="lead">Convert a 10-point CGPA to a percentage, or a percentage back to CGPA. Use the common CBSE method, a simple method, or type in your own university's formula.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>

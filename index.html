@@ -71,7 +71,29 @@ h2.t{font:800 clamp(1.7rem,4vw,2.4rem)/1.1 var(--head);letter-spacing:-.03em;mar
 @media(min-width:60rem){.two{grid-template-columns:1fr 1.3fr}}
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 .paths li{display:block}.paths .lks{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}.paths .lks a{font-size:.9rem;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:2rem;padding:.35rem .9rem;color:var(--text)}.paths .lks a:hover{border-color:var(--gold);color:var(--gold)}
-</style>
+
+/* Phase 3 — mobile UX, accessibility and touch targets */
+@media(max-width:59.99rem){
+  .wrap{padding-left:1rem;padding-right:1rem}
+  header{flex-wrap:wrap;gap:.8rem}
+  nav{display:flex;flex-wrap:wrap;gap:.7rem .9rem}
+  nav a{margin-left:0}
+  .hero{gap:1.5rem;padding-bottom:3rem}
+  .grid{grid-template-columns:1fr}
+  .calc{padding:1.15rem}
+  .tabs{overflow-x:auto;scrollbar-width:thin}
+  .tabs button{white-space:nowrap;min-height:2.75rem}
+  .chips button{min-height:2.75rem}
+  input,select{min-height:2.75rem}
+  table{max-width:100%;font-size:.95rem}
+}
+
+/* Phase 3 — control touch targets */
+button{min-height:2.75rem}
+input,select{min-height:2.75rem}
+/* Prevent long prose/table content from forcing the page wider than the viewport. */
+.prose{overflow-wrap:anywhere}
+''</style>
 <link href="https://thisisaarushsingh15-beep.github.io/Stipendex/" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
 <body>
 <div class="wrap">

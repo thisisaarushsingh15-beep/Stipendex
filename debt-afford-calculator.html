@@ -38,7 +38,29 @@ h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;mar
 details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 
-</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/debt-afford-calculator.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/debt-afford-calculator.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
+
+/* Phase 3 — mobile UX, accessibility and touch targets */
+@media(max-width:59.99rem){
+  .wrap{padding-left:1rem;padding-right:1rem}
+  header{flex-wrap:wrap;gap:.8rem}
+  nav{display:flex;flex-wrap:wrap;gap:.7rem .9rem}
+  nav a{margin-left:0}
+  .hero{gap:1.5rem;padding-bottom:3rem}
+  .grid{grid-template-columns:1fr}
+  .calc{padding:1.15rem}
+  .tabs{overflow-x:auto;scrollbar-width:thin}
+  .tabs button{white-space:nowrap;min-height:2.75rem}
+  .chips button{min-height:2.75rem}
+  input,select{min-height:2.75rem}
+  table{max-width:100%;font-size:.95rem}
+}
+
+/* Phase 3 — control touch targets */
+button{min-height:2.75rem}
+input,select{min-height:2.75rem}
+/* Prevent long prose/table content from forcing the page wider than the viewport. */
+.prose{overflow-wrap:anywhere}
+''</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/debt-afford-calculator.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/debt-afford-calculator.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
 <header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
 <main><div class="hero"><div><h1>How much student <span>debt</span> can you afford?</h1>
 <p class="lead">Enter the salary you expect after graduating. See a borrowing limit based on what you could comfortably repay each month.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
