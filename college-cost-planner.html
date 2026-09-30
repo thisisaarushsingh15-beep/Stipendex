@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>College Cost Calculator – Plan Your Total Cost | Stipendex</title><meta name="description" content="Free college cost calculator. Add tuition, housing, books and other costs to see your total for the whole degree and how much is left after grants and savings."><meta name="color-scheme" content="dark">
-<meta property="og:title" content="College Cost Calculator – Plan Your Total Cost"><meta property="og:description" content="Free college cost calculator. Add tuition, housing, books and other costs to see your total for the whole degree and how much is left after grants and savings."><meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>College Cost Calculator – Plan Your Total Cost | Stipendex</title><meta content="Free college cost calculator. Add tuition, housing, books and other costs to see your total for the whole degree and how much is left after grants and savings." name="description"/><meta content="dark" name="color-scheme"/>
+<meta content="College Cost Calculator – Plan Your Total Cost" property="og:title"/><meta content="Free college cost calculator. Add tuition, housing, books and other costs to see your total for the whole degree and how much is left after grants and savings." property="og:description"/><meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
@@ -37,20 +38,20 @@ h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;mar
 details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 
-</style></head><body><div class="wrap">
+</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/college-cost-planner.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/college-cost-planner.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
 <header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
 <main><div class="hero"><div><h1>What will college really <span>cost</span> you?</h1>
 <p class="lead">Add up a year of tuition, housing, books and everyday costs. See the total for your whole degree and how much is left to cover after grants and savings.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
 <div class="calc"><h2>College cost planner (a year of costs)</h2><div class="grid">
-<div><label for="tu">Tuition and fees ($)</label><input id="tu" type="number" min="0" step="500" value="12000" inputmode="decimal"></div>
-<div><label for="hf">Housing and food ($)</label><input id="hf" type="number" min="0" step="500" value="12000" inputmode="decimal"></div>
-<div><label for="bk">Books and supplies ($)</label><input id="bk" type="number" min="0" step="100" value="1000" inputmode="decimal"></div>
-<div><label for="ot">Transport and personal ($)</label><input id="ot" type="number" min="0" step="100" value="3000" inputmode="decimal"></div>
-<div><label for="yrs">Years of study</label><input id="yrs" type="number" min="1" max="8" step="1" value="4" inputmode="decimal"></div>
-<div><label for="gr">Yearly price rise (%)</label><input id="gr" type="number" min="0" step="0.5" value="3" inputmode="decimal"></div>
-<div><label for="gt">Grants and scholarships a year ($)</label><input id="gt" type="number" min="0" step="500" value="5000" inputmode="decimal"></div>
-<div><label for="fm">Savings or family help a year ($)</label><input id="fm" type="number" min="0" step="500" value="6000" inputmode="decimal"></div></div>
-<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="bar" aria-hidden="true"><b id="pb" style="background:var(--teal)"></b></div><div class="key"><span>Covered by grants and savings</span><span id="pct"></span></div><div class="save" id="sv" hidden></div></div></div></div>
+<div><label for="tu">Tuition and fees ($)</label><input id="tu" inputmode="decimal" min="0" step="500" type="number" value="12000"/></div>
+<div><label for="hf">Housing and food ($)</label><input id="hf" inputmode="decimal" min="0" step="500" type="number" value="12000"/></div>
+<div><label for="bk">Books and supplies ($)</label><input id="bk" inputmode="decimal" min="0" step="100" type="number" value="1000"/></div>
+<div><label for="ot">Transport and personal ($)</label><input id="ot" inputmode="decimal" min="0" step="100" type="number" value="3000"/></div>
+<div><label for="yrs">Years of study</label><input id="yrs" inputmode="decimal" max="8" min="1" step="1" type="number" value="4"/></div>
+<div><label for="gr">Yearly price rise (%)</label><input id="gr" inputmode="decimal" min="0" step="0.5" type="number" value="3"/></div>
+<div><label for="gt">Grants and scholarships a year ($)</label><input id="gt" inputmode="decimal" min="0" step="500" type="number" value="5000"/></div>
+<div><label for="fm">Savings or family help a year ($)</label><input id="fm" inputmode="decimal" min="0" step="500" type="number" value="6000"/></div></div>
+<div aria-live="polite" class="out"><div class="big" id="big"></div><div class="sub" id="sub"></div><div aria-hidden="true" class="bar"><b id="pb" style="background:var(--teal)"></b></div><div class="key"><span>Covered by grants and savings</span><span id="pct"></span></div><div class="save" hidden="" id="sv"></div></div></div></div>
 <!-- AD SLOT 1: paste ad code here once your ad account is approved -->
 <section><div class="two"><div><h2 class="t">How this works</h2>
 <p>We add your four yearly costs, raise them a little each year for price rises, and add up every year of your degree. Then we take away the help you expect to receive, and what's left is what you'd need to cover, often with loans.</p>

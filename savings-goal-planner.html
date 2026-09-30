@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Savings Goal Calculator – How Much to Save Each Month | Stipendex</title><meta name="description" content="Free savings goal calculator. Enter your goal, what you've saved and your deadline to see how much to save each month, or how long it takes at your own pace."><meta name="color-scheme" content="dark">
-<meta property="og:title" content="Savings Goal Calculator – How Much to Save Each Month"><meta property="og:description" content="Free savings goal calculator. Enter your goal, what you've saved and your deadline to see how much to save each month, or how long it takes at your own pace."><meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Savings Goal Calculator – How Much to Save Each Month | Stipendex</title><meta content="Free savings goal calculator. Enter your goal, what you've saved and your deadline to see how much to save each month, or how long it takes at your own pace." name="description"/><meta content="dark" name="color-scheme"/>
+<meta content="Savings Goal Calculator – How Much to Save Each Month" property="og:title"/><meta content="Free savings goal calculator. Enter your goal, what you've saved and your deadline to see how much to save each month, or how long it takes at your own pace." property="og:description"/><meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
@@ -37,21 +38,21 @@ h2.t{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--head);letter-spacing:-.03em;mar
 details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:pointer;font:700 1.05rem var(--head)}details p{color:var(--mute);margin:.6rem 0 0}
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 
-</style></head><body><div class="wrap">
+</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/savings-goal-planner.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/savings-goal-planner.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
 <header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
 <main><div class="hero"><div>
 <h1>How much should you <span>save</span> each month?</h1>
 <p class="lead">Tell us what you're saving for, how much you have, and when you need it. You get the monthly amount to hit your goal, or how long it takes at your own pace.</p>
 <p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
 <div class="calc"><h2>Savings goal planner</h2><div class="grid">
-<div><label for="g">Goal amount ($)</label><input id="g" type="number" min="0" step="50" value="3000" inputmode="decimal"></div>
-<div><label for="s">Already saved ($)</label><input id="s" type="number" min="0" step="50" value="400" inputmode="decimal"></div>
-<div><label for="m">Months until you need it</label><input id="m" type="number" min="1" step="1" value="10" inputmode="decimal"></div>
-<div><label for="a">Savings interest (% a year)</label><input id="a" type="number" min="0" step="0.1" value="4" inputmode="decimal"></div>
-<div class="full"><label for="c">Optional: what you can save a month ($)</label><input id="c" type="number" min="0" step="10" value="200" inputmode="decimal"></div></div>
-<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div>
-<div class="bar" aria-hidden="true"><b id="pb" style="background:var(--teal)"></b></div><div class="key"><span>Saved so far</span><span id="pct"></span></div>
-<div class="save" id="sv" hidden></div></div></div></div>
+<div><label for="g">Goal amount ($)</label><input id="g" inputmode="decimal" min="0" step="50" type="number" value="3000"/></div>
+<div><label for="s">Already saved ($)</label><input id="s" inputmode="decimal" min="0" step="50" type="number" value="400"/></div>
+<div><label for="m">Months until you need it</label><input id="m" inputmode="decimal" min="1" step="1" type="number" value="10"/></div>
+<div><label for="a">Savings interest (% a year)</label><input id="a" inputmode="decimal" min="0" step="0.1" type="number" value="4"/></div>
+<div class="full"><label for="c">Optional: what you can save a month ($)</label><input id="c" inputmode="decimal" min="0" step="10" type="number" value="200"/></div></div>
+<div aria-live="polite" class="out"><div class="big" id="big"></div><div class="sub" id="sub"></div>
+<div aria-hidden="true" class="bar"><b id="pb" style="background:var(--teal)"></b></div><div class="key"><span>Saved so far</span><span id="pct"></span></div>
+<div class="save" hidden="" id="sv"></div></div></div></div>
 <!-- AD SLOT 1: paste ad code here once your ad account is approved -->
 <section><div class="two"><div><h2 class="t">How the savings goal works</h2>
 <p>Take your goal, subtract what you already have, and split the rest across the months you have left. If your savings earn interest, you need to put in a bit less each month.</p>

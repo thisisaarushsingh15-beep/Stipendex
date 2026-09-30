@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGPA to Percentage Calculator – Free, 10-Point Scale | Stipendex</title><meta name="description" content="Free CGPA to percentage calculator for the 10-point scale. Use the CBSE method (x 9.5), a simple method, or enter your own university formula."><meta name="color-scheme" content="dark">
-<meta property="og:title" content="CGPA to Percentage Calculator – Free, 10-Point Scale"><meta property="og:description" content="Free CGPA to percentage calculator for the 10-point scale. Use the CBSE method (x 9.5), a simple method, or enter your own university formula."><meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<html lang="en-IN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>CGPA to Percentage Calculator – Free, 10-Point Scale | Stipendex</title><meta content="Free CGPA to percentage calculator for the 10-point scale. Use the CBSE method (x 9.5), a simple method, or enter your own university formula." name="description"/><meta content="dark" name="color-scheme"/>
+<meta content="CGPA to Percentage Calculator – Free, 10-Point Scale" property="og:title"/><meta content="Free CGPA to percentage calculator for the 10-point scale. Use the CBSE method (x 9.5), a simple method, or enter your own university formula." property="og:description"/><meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#0c1020;--panel:#121833;--line:#252c4d;--text:#e8ebf7;--mute:#98a0c3;--gold:#f4b64a;--teal:#5fd4c4;--warn:#ff8a80;--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}
@@ -38,16 +39,16 @@ details{border-bottom:1px solid var(--line);padding:.9rem 0}summary{cursor:point
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 
 select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--line);border-radius:.6rem;padding:.65rem .8rem;font:500 1.05rem var(--body)}select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #f4b64a33}.tblx{width:100%;border-collapse:collapse;margin:.6rem 0}.tblx td,.tblx th{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line)}.tblx th{color:var(--mute);font-weight:500;font-size:.9rem}
-</style></head><body><div class="wrap">
+</style><link href="https://thisisaarushsingh15-beep.github.io/Stipendex/cgpa-to-percentage.html" rel="canonical"/><meta content="https://thisisaarushsingh15-beep.github.io/Stipendex/cgpa-to-percentage.html" property="og:url"/><meta content="summary" name="twitter:card"/></head><body><div class="wrap">
 <header><a class="logo" href="index.html"><i></i>Stipendex</a><nav aria-label="Main"><a href="index.html#calculator">Loan payoff</a><a href="index.html#tools">All calculators</a></nav></header>
 <main><div class="hero"><div><h1>Turn your <span>CGPA</span> into a percentage.</h1>
 <p class="lead">Convert a 10-point CGPA to a percentage, or a percentage back to CGPA. Use the common CBSE method, a simple method, or type in your own university's formula.</p><p class="lead">Free, no sign-up, and nothing you type leaves your device.</p></div>
 <div class="calc"><h2>CGPA to percentage calculator (10-point scale)</h2><div class="grid">
 <div class="full"><label for="dir">Convert</label><select id="dir"><option value="cp">CGPA to percentage</option><option value="pc">Percentage to CGPA</option></select></div>
-<div class="full"><label for="v" id="vl">Your CGPA (out of 10)</label><input id="v" type="number" min="0" step="0.01" value="8" inputmode="decimal"></div>
+<div class="full"><label for="v" id="vl">Your CGPA (out of 10)</label><input id="v" inputmode="decimal" min="0" step="0.01" type="number" value="8"/></div>
 <div class="full"><label for="fm">Method</label><select id="fm"><option value="9.5">CBSE method: CGPA × 9.5</option><option value="10">Simple method: CGPA × 10</option><option value="c">My university's formula</option></select></div>
-<div class="grid full" id="cust" style="display:none"><div><label for="mu">Multiply by</label><input id="mu" type="number" step="0.01" value="10" inputmode="decimal"></div><div><label for="of">After subtracting</label><input id="of" type="number" step="0.01" value="0.75" inputmode="decimal"></div></div></div>
-<div class="out" aria-live="polite"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="save" id="sv" hidden></div></div></div></div>
+<div class="grid full" id="cust" style="display:none"><div><label for="mu">Multiply by</label><input id="mu" inputmode="decimal" step="0.01" type="number" value="10"/></div><div><label for="of">After subtracting</label><input id="of" inputmode="decimal" step="0.01" type="number" value="0.75"/></div></div></div>
+<div aria-live="polite" class="out"><div class="big" id="big"></div><div class="sub" id="sub"></div><div class="save" hidden="" id="sv"></div></div></div></div>
 <!-- AD SLOT 1: paste ad code here once your ad account is approved -->
 <section><div class="two"><div><h2 class="t">How the conversion works</h2>
 <p>There is no single official formula. The most common one multiplies your CGPA by <strong>9.5</strong>, which CBSE uses. Some universities multiply by 10, and some subtract a small number first and then multiply.</p>

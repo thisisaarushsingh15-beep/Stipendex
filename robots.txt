@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thisisaarushsingh15-beep.github.io/Stipendex/sitemap.xml
