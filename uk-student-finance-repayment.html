@@ -55,7 +55,7 @@ select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--li
 <div><h2 class="t">Thresholds for 2026/27</h2>
 <table class="tblx"><tr><th>Plan</th><th>You repay above</th><th>Written off after</th></tr>
 <tr><td>Plan 1</td><td>£26,900</td><td>25 years*</td></tr><tr><td>Plan 2</td><td>£29,385</td><td>30 years</td></tr><tr><td>Plan 4</td><td>£33,795</td><td>30 years</td></tr><tr><td>Plan 5</td><td>£25,000</td><td>40 years</td></tr><tr><td>Postgraduate</td><td>£21,000 (at 6%)</td><td>30 years</td></tr></table>
-<p class="sub">*Some older Plan 1 loans end at age 65. Thresholds change most years. Check gov.uk for the latest.</p></div></div></section>
+<p class="sub">*Write-off timing depends on when your loan was taken out for some plans. Thresholds change most years. <a href="https://www.gov.uk/repaying-your-student-loan/when-your-student-loan-gets-written-off-or-cancelled" rel="noopener">Check GOV.UK for the exact write-off rules</a>.</p></div></div></section>
 <section><h2 class="t">Common questions</h2>
 <details><summary>Which plan am I on?</summary><p>It depends on where and when you started your course. Log in to your student loan account or check gov.uk to see your plan. If you're unsure, don't guess.</p></details>
 <details><summary>Can I have two loans at once?</summary><p>Yes. If you also have a postgraduate loan, you repay it at the same time as your main loan. Tick the box above to include it.</p></details>
@@ -64,12 +64,12 @@ var $=function(i){return document.getElementById(i)},fmt=function(n){return n.to
 var P={p1:["Plan 1",26900,"25 years"],p2:["Plan 2",29385,"30 years"],p4:["Plan 4",33795,"30 years"],p5:["Plan 5",25000,"40 years"]};
 function rep(s,t){return Math.max(0,s-t)*0.09}
 function run(){var s=+$("sal").value,k=$("plan").value,pg=$("pg").checked,big=$("big"),sub=$("sub"),sv=$("sv");
-if(!(s>0)){big.textContent="Enter your salary";sub.textContent="Your yearly salary needs to be above zero.";sv.hidden=true;return}
+if(!Number.isFinite(s)||!(s>0)){big.textContent="Enter your salary";sub.textContent="Your yearly salary needs to be above zero.";sv.hidden=true;return}
 var t=P[k][1],pgy=pg?Math.max(0,s-21000)*0.06:0,y=rep(s,t)+pgy;
 big.textContent=fmt2(y/12)+" a month";
 sub.textContent=y>0?"That's "+fmt(y)+" a year, about "+(y/s*100).toFixed(1)+"% of your pay before tax.":"You earn below the "+fmt(t)+" threshold for "+P[k][0]+", so nothing is taken.";
 var h="Same salary on each plan"+(pg?" (plus your postgraduate loan)":"")+":<br>";
 ["p1","p2","p4","p5"].forEach(function(q){h+=P[q][0]+": <strong>"+fmt2((rep(s,P[q][1])+pgy)/12)+"</strong> a month<br>"});
-h+="Your plan is written off after about "+P[k][2]+".";sv.hidden=false;sv.innerHTML=h}
+h+="Your plan is generally written off after about "+P[k][2]+", but the exact rule can depend on when the loan was taken out.";sv.hidden=false;sv.innerHTML=h}
 $("sal").addEventListener("input",run);$("plan").addEventListener("change",run);$("pg").addEventListener("change",run);run();
 </script></body></html>

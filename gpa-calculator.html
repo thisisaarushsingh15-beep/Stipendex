@@ -151,12 +151,12 @@ function run(){
     if(c>0){pts+=parseFloat(r.querySelector("select").value)*c;cr+=c}
   });
   var g=$("gpa"),d=$("det"),cb=$("cumbox");g.classList.remove("err");cb.hidden=true;
-  if(cr<=0){g.classList.add("err");g.textContent="Add credits";d.textContent="Enter the credits for at least one course.";return}
+  if(!Number.isFinite(cr)||!Number.isFinite(pts)||cr<=0){g.classList.add("err");g.textContent="Add credits";d.textContent="Enter the credits for at least one course.";return}
   var s=pts/cr;
   g.textContent="Semester GPA "+s.toFixed(2);
   d.textContent=cr+" credits this semester, "+pts.toFixed(1)+" grade points.";
   var cg=parseFloat($("cg").value),cc=parseFloat($("cc").value);
-  if(cg>=0&&cc>0){var n=(cg*cc+pts)/(cc+cr);cb.hidden=false;cb.innerHTML="Your new cumulative GPA: <strong>"+n.toFixed(2)+"</strong> over "+(cc+cr)+" credits."}
+  if(Number.isFinite(cg)&&Number.isFinite(cc)&&cg>=0&&cg<=4.3&&cc>0){var n=(cg*cc+pts)/(cc+cr);cb.hidden=false;cb.innerHTML="Your new cumulative GPA: <strong>"+n.toFixed(2)+"</strong> over "+(cc+cr)+" credits."}
 }
 $("add").addEventListener("click",function(){row("","B",3);run()});
 $("rows").addEventListener("input",run);$("rows").addEventListener("change",run);

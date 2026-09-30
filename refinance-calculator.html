@@ -60,7 +60,7 @@ var $=function(i){return document.getElementById(i)},fmt=function(n){return n.to
 function pay(B,a,n){var r=a/1200;return r>0?B*r/(1-Math.pow(1+r,-n)):B/n}
 function run(){var B=+$("b").value,a1=+$("r1").value||0,y1=+$("y1").value,a2=+$("r2").value||0,y2=+$("y2").value;
 var big=$("big"),sub=$("sub"),sv=$("sv");big.classList.remove("err");sv.hidden=true;
-if(!(B>0)||!(y1>0)||!(y2>0)){big.textContent="Enter your loan details";sub.textContent="Balance and both terms need to be above zero.";return}
+if(!Number.isFinite(B)||!Number.isFinite(a1)||!Number.isFinite(y1)||!Number.isFinite(a2)||!Number.isFinite(y2)||!(B>0)||a1<0||a2<0||!(y1>0)||!(y2>0)){big.textContent="Enter your loan details";sub.textContent="Balance and both terms need to be above zero.";return}
 var n1=Math.round(y1*12),n2=Math.round(y2*12),p1=pay(B,a1,n1),p2=pay(B,a2,n2),i1=p1*n1-B,i2=p2*n2-B,d=i1-i2;
 big.classList.toggle("err",d<0);
 big.textContent=d>=0?"Save about "+fmt(d)+" in interest":"You'd pay about "+fmt(-d)+" more";

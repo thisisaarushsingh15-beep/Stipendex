@@ -71,6 +71,6 @@ sub.textContent="You spend "+fmt(sp)+" of your "+fmt(inc)+" income.";
 var base=Math.max(inc,sp),p=function(x){return Math.round(x/inc*100)};
 $("bn").style.width=n/base*100+"%";$("bw").style.width=w/base*100+"%";
 $("kn").textContent="Needs "+p(n)+"%";$("kw").textContent="Wants "+p(w)+"%";$("kl").textContent=(left>=0?"Saved ":"Over ")+Math.abs(p(left))+"%";
-$("sv").innerHTML="The 50/30/20 guide is <strong>50% needs, 30% wants, 20% saving</strong>. Yours is <strong>"+p(n)+"% / "+p(w)+"% / "+p(left)+"%</strong>."}
+$("sv").innerHTML="The 50/30/20 guide is <strong>50% needs, 30% wants, 20% saving</strong>. Yours is <strong>"+p(n)+"% needs / "+p(w)+"% wants</strong>, with <strong>"+(left>=0?p(left)+"% left over":"an overspend of "+Math.abs(p(left))+"%")+"</strong>."}
 document.querySelectorAll("input").forEach(function(e){e.addEventListener("input",run)});run();
 </script></body></html>

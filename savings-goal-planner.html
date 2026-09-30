@@ -66,7 +66,7 @@ var $=function(i){return document.getElementById(i)},fmt=function(n){return n.to
 function span(m){var y=Math.floor(m/12),o=m%12,s="";if(y)s+=y+(y===1?" year":" years");if(o)s+=(s?" ":"")+o+(o===1?" month":" months");return s||"0 months"}
 function run(){var G=+$("g").value,S=+$("s").value||0,M=Math.round(+$("m").value),A=+$("a").value||0,C=+$("c").value||0,r=A/1200;
 var big=$("big"),sub=$("sub"),sv=$("sv");big.classList.remove("err");sv.hidden=true;
-if(!(G>0)||!(M>=1)){big.textContent="Enter your goal";sub.textContent="Goal amount and months both need to be above zero.";$("pb").style.width="0";$("pct").textContent="";return}
+if(!Number.isFinite(G)||!Number.isFinite(S)||!Number.isFinite(M)||!Number.isFinite(A)||!Number.isFinite(C)||!(G>0)||S<0||M<1||A<0||C<0){big.textContent="Enter your goal";sub.textContent="Goal amount and months both need to be above zero.";$("pb").style.width="0";$("pct").textContent="";return}
 var pct=Math.min(100,S/G*100);$("pb").style.width=pct+"%";$("pct").textContent=pct.toFixed(0)+"% of goal";
 var g=r>0?Math.pow(1+r,M):1,need=G-S*g;
 if(need<=0){big.textContent="You're on track";sub.textContent="Your "+fmt(S)+" alone grows to "+fmt(S*g)+" in "+M+" months. No monthly saving needed."}

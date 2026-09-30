@@ -63,7 +63,7 @@ select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--li
 var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0})};
 function emi(P,a,n){var r=a/1200;return r>0?P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):P/n}
 function run(){var P=+$("amt").value,a=+$("rt").value||0,cy=+$("cy").value||0,ex=+$("ex").value||0,ty=+$("ty").value,md=$("md").value,big=$("big"),sub=$("sub"),sv=$("sv");
-if(!(P>0)||!(ty>0)){big.textContent="Enter your loan details";sub.textContent="Loan amount and repayment years need to be above zero.";sv.hidden=true;return}
+if(!Number.isFinite(P)||!Number.isFinite(a)||!Number.isFinite(cy)||!Number.isFinite(ex)||!Number.isFinite(ty)||!(P>0)||a<0||cy<0||ex<0||!(ty>0)){big.textContent="Enter your loan details";sub.textContent="Loan amount and repayment years need to be above zero.";sv.hidden=true;return}
 var mo=Math.round(cy*12+ex),n=Math.round(ty*12),ms=P*a/1200,acc=md==="pay"?0:ms*mo,B=P+acc,e=emi(B,a,n),tot=e*n,paidStudy=md==="pay"?ms*mo:0,allInt=tot-B+acc+paidStudy;
 big.textContent=fmt(e)+" a month";
 sub.textContent="For "+ty+" years, starting after "+mo+" months ("+cy+" years of course plus "+ex+" months).";

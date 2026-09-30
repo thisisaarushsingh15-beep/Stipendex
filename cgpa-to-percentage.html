@@ -57,7 +57,7 @@ select{width:100%;background:#0c1020;color:var(--text);border:1px solid var(--li
 <section><h2 class="t">Quick reference (CBSE method)</h2>
 <table class="tblx"><tr><th>CGPA</th><th>Percentage</th></tr><tr><td>10</td><td>95%</td></tr><tr><td>9</td><td>85.5%</td></tr><tr><td>8.5</td><td>80.75%</td></tr><tr><td>8</td><td>76%</td></tr><tr><td>7.5</td><td>71.25%</td></tr><tr><td>7</td><td>66.5%</td></tr><tr><td>6</td><td>57%</td></tr></table></section>
 <section><h2 class="t">Common questions</h2>
-<details><summary>Which formula should I use?</summary><p>Use the one your university or the organisation asking for it accepts. If nothing is specified, the CBSE method (× 9.5) is the most widely recognised.</p></details>
+<details><summary>Which formula should I use?</summary><p>Use the one your university or the organisation asking for it accepts. If nothing is specified, the CBSE method (× 9.5) is available as a reference here, but it is not a universal rule.</p></details>
 <details><summary>Does this work for a 4-point scale?</summary><p>No. This tool is for 10-point CGPA systems. For a 4.0 scale, see our GPA calculator.</p></details></section></main><footer><p>© 2026 Stipendex. Results are estimates for planning, not financial advice. <a href="privacy.html">Privacy policy</a></p></footer></div><script>
 var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0})};
 function run(){var m=$("dir").value,f=$("fm").value,big=$("big"),sub=$("sub"),sv=$("sv"),raw=$("v").value,v=+raw;
@@ -65,9 +65,9 @@ $("cust").style.display=f==="c"?"grid":"none";$("vl").textContent=m==="cp"?"Your
 var mul=f==="c"?+$("mu").value:+f,off=f==="c"?+$("of").value||0:0;sv.hidden=true;big.classList.remove("err");
 if(raw===""||!(mul>0)){big.textContent="Enter a value";sub.textContent=mul>0?"Type your "+(m==="cp"?"CGPA":"percentage")+" above.":"The multiplier needs to be above zero.";return}
 if(m==="cp"){if(v<0||v>10){big.classList.add("err");big.textContent="Check your CGPA";sub.textContent="A 10-point CGPA is between 0 and 10.";return}
-var p=(v-off)*mul;big.textContent=p.toFixed(2)+"%";sub.textContent=f==="c"?"("+v+" − "+off+") × "+mul+" = "+p.toFixed(2)+"%":"CGPA "+v+" × "+mul+" = "+p.toFixed(2)+"%"}
+var p=(v-off)*mul;if(!Number.isFinite(p)||p<0||p>100){big.classList.add("err");big.textContent="Check your custom formula";sub.textContent="That formula produces a percentage outside the 0 to 100 range. Check the multiplier and amount subtracted.";return}big.textContent=p.toFixed(2)+"%";sub.textContent=f==="c"?"("+v+" − "+off+") × "+mul+" = "+p.toFixed(2)+"%":"CGPA "+v+" × "+mul+" = "+p.toFixed(2)+"%"}
 else{if(v<0||v>100){big.classList.add("err");big.textContent="Check your percentage";sub.textContent="A percentage is between 0 and 100.";return}
-var g=v/mul+off;big.textContent=g.toFixed(2)+" CGPA";sub.textContent="Working back from "+v+"% using the method you picked."}}
+var g=v/mul+off;if(!Number.isFinite(g)||g<0||g>10){big.classList.add("err");big.textContent="Check your custom formula";sub.textContent="That formula produces a CGPA outside the 0 to 10 range. Check the multiplier and amount added.";return}big.textContent=g.toFixed(2)+" CGPA";sub.textContent="Working back from "+v+"% using the method you picked."}}
 $("dir").addEventListener("change",function(){$("v").value=this.value==="cp"?8:76;run()});
 ["fm","v","mu","of"].forEach(function(i){$(i).addEventListener(i==="fm"?"change":"input",run)});run();
 </script></body></html>

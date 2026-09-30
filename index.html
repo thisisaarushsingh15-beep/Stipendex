@@ -167,7 +167,7 @@ var extra=100;
 var fmt=function(n){return n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0})};
 function sim(B,apr,P){
   var r=apr/1200,bal=B,m=0,t=0;
-  while(bal>0.005&&m<1200){var i=bal*r;t+=i;bal+=i-P;m++;if(P<=i&&m>1)return null}
+  while(bal>0.005&&m<1200){var i=bal*r;if(P<=i)return null;t+=i;bal+=i-P;m++}
   return bal>0.005?null:{m:m,t:t}
 }
 function span(m){var y=Math.floor(m/12),mo=m%12,s="";if(y)s+=y+(y===1?" year":" years");if(mo)s+=(s?" ":"")+mo+(mo===1?" month":" months");return s||"under a month"}
@@ -175,7 +175,7 @@ function run(){
   var B=+$("bal").value,a=+$("apr").value,P=+$("pay").value;
   var when=$("when"),int=$("int"),pb=$("pb"),sv=$("save");
   when.classList.remove("err");sv.hidden=true;
-  if(!(B>0)||!(P>0)||a<0){when.textContent="Enter your loan details";int.textContent="Balance and payment need to be above zero.";pb.style.width="0";return}
+  if(!Number.isFinite(B)||!Number.isFinite(P)||!Number.isFinite(a)||!Number.isFinite(extra)||!(B>0)||!(P>0)||a<0||extra<0){when.textContent="Enter your loan details";int.textContent="Balance and payment need to be above zero.";pb.style.width="0";return}
   var base=sim(B,a,P);
   if(!base){when.classList.add("err");when.textContent="Payment is too low";int.textContent="Your payment doesn't cover the "+fmt(B*a/1200)+" interest added each month, so the loan never ends.";pb.style.width="0";return}
   when.textContent="Debt-free in "+span(base.m);

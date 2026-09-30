@@ -64,6 +64,7 @@ function cls(a){return a>=70?"First-class honours (a First)":a>=60?"Upper second
 function run(){var big=$("big"),sub=$("sub"),sv=$("sv");sv.hidden=true;
 var m=[+$("m1").value,+$("m2").value,+$("m3").value],has=[$("m1").value!=="",$("m2").value!=="",$("m3").value!==""],w=[+$("w1").value||0,+$("w2").value||0,+$("w3").value||0],S=0,W=0;
 for(var i=0;i<3;i++)if(has[i]&&w[i]>0){S+=m[i]*w[i];W+=w[i]}
+if(!m.every(function(x,i){return !has[i]||(Number.isFinite(x)&&x>=0&&x<=100)})||!w.every(function(x){return Number.isFinite(x)&&x>=0&&x<=100})){big.classList.add("err");big.textContent="Check your marks or weights";sub.textContent="Marks must be between 0 and 100, and each year weight must be between 0% and 100%.";return}
 if(W===0){big.textContent="Enter your marks";sub.textContent="Add at least one year's average mark that counts towards your degree.";return}
 var a=S/W,done=has[2]&&w[2]>0,h="";
 big.textContent=cls(a)+(done?"":" so far");

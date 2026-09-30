@@ -63,7 +63,7 @@ var $=function(i){return document.getElementById(i)},fmt=function(n){return n.to
 function pay(B,a,n){var r=a/1200;return r>0?B*r/(1-Math.pow(1+r,-n)):B/n}
 function run(){var base=(+$("tu").value||0)+(+$("hf").value||0)+(+$("bk").value||0)+(+$("ot").value||0),Y=Math.round(+$("yrs").value),g=(+$("gr").value||0)/100,f=((+$("gt").value||0)+(+$("fm").value||0))*Y;
 var big=$("big"),sub=$("sub"),sv=$("sv");big.classList.remove("err");sv.hidden=true;
-if(!(base>0)||!(Y>=1)){big.textContent="Enter your costs";sub.textContent="Add at least one yearly cost and the years of study.";$("pb").style.width="0";$("pct").textContent="";return}
+if(!Number.isFinite(base)||!Number.isFinite(Y)||!Number.isFinite(g)||!Number.isFinite(f)||!(base>0)||!(Y>=1)||Y>8||g<0){big.textContent="Enter your costs";sub.textContent="Add at least one yearly cost and the years of study.";$("pb").style.width="0";$("pct").textContent="";return}
 var t=0;for(var k=0;k<Y;k++)t+=base*Math.pow(1+g,k);
 var gap=t-f,pc=Math.min(100,f/t*100);$("pb").style.width=pc+"%";$("pct").textContent=pc.toFixed(0)+"% of the total";
 sub.textContent="Total cost over "+Y+" years: "+fmt(t)+". Help you expect: "+fmt(f)+".";

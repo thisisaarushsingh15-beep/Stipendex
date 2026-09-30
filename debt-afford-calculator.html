@@ -59,7 +59,7 @@ var $=function(i){return document.getElementById(i)},fmt=function(n){return n.to
 function pay(B,a,n){var r=a/1200;return r>0?B*r/(1-Math.pow(1+r,-n)):B/n}
 function run(){var S=+$("sal").value,a=+$("rt").value||0,y=+$("yr").value,pc=+$("pc").value;
 var big=$("big"),sub=$("sub"),sv=$("sv");sv.hidden=true;
-if(!(S>0)||!(y>0)||!(pc>0)){big.textContent="Enter your details";sub.textContent="Salary, years and percentage need to be above zero.";return}
+if(!Number.isFinite(S)||!Number.isFinite(a)||!Number.isFinite(y)||!Number.isFinite(pc)||!(S>0)||a<0||!(y>0)||!(pc>0)||pc>50){big.textContent="Enter your details";sub.textContent="Salary, years and percentage need to be above zero.";return}
 var m=S/12*pc/100,n=Math.round(y*12),r=a/1200,loan=r>0?m*(1-Math.pow(1+r,-n))/r:m*n;
 big.textContent="About "+fmt(loan)+" in loans";
 sub.textContent=pc+"% of "+fmt(S/12)+" a month is "+fmt(m)+", paid over "+y+" years at "+a+"%.";
