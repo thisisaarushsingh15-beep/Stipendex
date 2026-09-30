@@ -193,13 +193,18 @@ function run(){
   if(!Number.isFinite(B)||!Number.isFinite(P)||!Number.isFinite(a)||!Number.isFinite(extra)||!(B>0)||!(P>0)||a<0||extra<0){when.textContent="Enter your loan details";int.textContent="Balance and payment need to be above zero.";pb.style.width="0";return}
   var base=sim(B,a,P);
   if(!base){when.classList.add("err");when.textContent="Payment is too low";int.textContent="Your payment doesn't cover the "+fmt(B*a/1200)+" interest added each month, so the loan never ends.";pb.style.width="0";return}
-  when.textContent="Debt-free in "+span(base.m);
-  int.textContent="You'll pay "+fmt(base.t)+" in interest on top of "+fmt(B)+".";
-  pb.style.width=(B/(B+base.t)*100)+"%";
+  var current=base;
   if(extra>0){
     var f=sim(B,a,P+extra);
-    if(f){sv.hidden=false;sv.innerHTML="Adding <strong>"+fmt(extra)+" a month</strong> ends your loan <strong>"+span(base.m-f.m)+" sooner</strong> and saves <strong>"+fmt(base.t-f.t)+"</strong> in interest."}
+    if(f){
+      current=f;
+      sv.hidden=false;
+      sv.innerHTML="Adding <strong>"+fmt(extra)+" a month</strong> ends your loan <strong>"+span(base.m-f.m)+" sooner</strong> and saves <strong>"+fmt(base.t-f.t)+"</strong> in interest.";
+    }
   }
+  when.textContent="Debt-free in "+span(current.m);
+  int.textContent="You'll pay "+fmt(current.t)+" in interest on top of "+fmt(B)+".";
+  pb.style.width=(B/(B+current.t)*100)+"%";
 }
 ["bal","apr","pay"].forEach(function(i){$(i).addEventListener("input",run)});
 document.querySelectorAll(".chips button").forEach(function(b){b.addEventListener("click",function(){
