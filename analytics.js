@@ -1,13 +1,5 @@
 (function(){
   'use strict';
-  var GA_ID='G-S3H3K12WE4';
-  window.dataLayer=window.dataLayer||[];
-  window.gtag=window.gtag||function(){dataLayer.push(arguments);};
-  gtag('js',new Date());
-  gtag('config',GA_ID,{
-    anonymize_ip:true,
-    cookie_flags:'SameSite=None;Secure'
-  });
 
   function send(name,params){
     if(typeof window.gtag==='function') window.gtag('event',name,params||{});
